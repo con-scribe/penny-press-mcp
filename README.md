@@ -1,3 +1,5 @@
+![Penny Press logo](logo.png)
+
 # Penny Press — MCP Server
 
 **Free for humans. Pennies for machines.**
