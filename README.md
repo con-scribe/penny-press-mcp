@@ -1,4 +1,5 @@
 ![Penny Press logo](logo.png)
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/con-scribe/penny-press-mcp)
 
 # Penny Press — MCP Server
 
