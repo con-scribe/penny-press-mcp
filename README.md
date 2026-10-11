@@ -60,5 +60,6 @@ signing.
 ## License
 
 Documentation in this repository is licensed under
-[CC-BY-4.0](./LICENSE). The essays themselves remain the work of their
+[CC-BY-4.0](./LICENSE). Code (the `litwit/` module) is licensed under
+[MIT](./LICENSE-MIT). The essays themselves remain the work of their
 pseudonymous author.
