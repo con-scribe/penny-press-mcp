@@ -8,8 +8,6 @@ LitWit provides provenance-as-a-service that timestamps without endorsing. The w
 
 Pseudonymous writers who wish to protect their anonymity can use LitWit to establish provenance in the digital age. As the agentic economy takes shape, open-source tools like LitWit help writers strengthen trust and editorial integrity.
 
-Scribe — 2026/10/11
-
 ---
 
 ## Endpoints
