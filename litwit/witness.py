@@ -395,6 +395,7 @@ def _api_docs_html():
         "<li><code>GET /witness/verify?hash=</code> — free, look up a "
         "content hash and validate the chain.</li>",
         "</ul>",
+        "<p>The witness implementation is <a href=\"https://github.com/con-scribe/penny-press-mcp/tree/main/litwit\">open source (MIT)</a> — verify the claims yourself.</p>",
     ]
     return NL.join(parts) + NL
 
@@ -532,6 +533,75 @@ def _verify_form_html():
     ])
 
 
+def _verify_result_html(query, matches, chain):
+    from html import escape
+    parts = [
+        '<a class="back" href="/witness">&larr; The Literary Witness</a>',
+        '<h1 class="read-title">Verification result</h1>',
+        '<div class="prose">',
+    ]
+    if matches:
+        parts.append(
+            '<p style="font-size:1.4em;">'
+            '<span style="color:#2e7d32;">&#10003;</span> '
+            "<strong>Witnessed</strong></p>"
+        )
+        parts.append(
+            "<p>This fingerprint is recorded in the public log.</p>"
+        )
+        for m in matches:
+            parts.append("<dl>")
+            parts.append(
+                f"<dt>Work</dt><dd>{escape(m['work_title'])}</dd>")
+            parts.append(
+                f"<dt>Entry</dt><dd>{escape(m['entry_id'])} "
+                f"(sequence {m['seq']})</dd>")
+            parts.append(
+                f"<dt>Witnessed at</dt><dd>{escape(m['witnessed_at'])}</dd>")
+            if m.get("author_label"):
+                parts.append(
+                    f"<dt>Author label</dt>"
+                    f"<dd>{escape(m['author_label'])}</dd>")
+            parts.append(
+                f"<dt>Fingerprint</dt><dd><code>{escape(m['content_hash'])}"
+                f"</code></dd>")
+            parts.append("</dl>")
+    else:
+        parts.append(
+            '<p style="font-size:1.4em;">'
+            '<span style="color:#a33;">&#10007;</span> '
+            "<strong>Not found</strong></p>"
+        )
+        parts.append(
+            "<p>This fingerprint does not appear in the public log.</p>"
+        )
+    if chain["chain_valid"]:
+        parts.append(
+            f"<p>Log chain valid — {chain['entries_checked']} entries "
+            f"checked.</p>"
+        )
+    else:
+        parts.append(
+            "<p><strong>Warning:</strong> the log chain failed validation.</p>"
+        )
+    parts.append(
+        '<p><a href="/witness/verify">Verify another fingerprint</a></p>')
+    parts.append("</div>")
+    return NL.join(parts) + NL
+
+
+def _verify_error_html(message):
+    from html import escape
+    return NL.join([
+        '<a class="back" href="/witness">&larr; The Literary Witness</a>',
+        '<h1 class="read-title">Verification result</h1>',
+        '<div class="prose">',
+        f"<p>Could not verify: {escape(message)}</p>",
+        '<p><a href="/witness/verify">Try again</a></p>',
+        "</div>",
+    ]) + NL
+
+
 def register_routes(app, page_fn, publication_name, network):
     from fastapi import Request
     from fastapi.responses import HTMLResponse, JSONResponse
@@ -589,7 +659,7 @@ def register_routes(app, page_fn, publication_name, network):
         return get_log()
 
     @app.get("/witness/verify")
-    async def witness_verify(hash: str = ""):
+    async def witness_verify(request: Request, hash: str = ""):
         if not hash.strip():
             result = page_fn(
                 "Verify a fingerprint - " + publication_name,
@@ -598,11 +668,28 @@ def register_routes(app, page_fn, publication_name, network):
             if isinstance(result, str):
                 return HTMLResponse(content=result)
             return result
+        wants_html = "text/html" in request.headers.get("accept", "")
         try:
             matches = find_by_hash(hash)
         except ValueError as e:
+            if wants_html:
+                result = page_fn(
+                    "Verify a fingerprint - " + publication_name,
+                    _verify_error_html(str(e)),
+                )
+                if isinstance(result, str):
+                    return HTMLResponse(content=result, status_code=400)
+                return result
             return JSONResponse({"error": str(e)}, status_code=400)
         chain = verify_chain()
+        if wants_html:
+            result = page_fn(
+                "Verification result - " + publication_name,
+                _verify_result_html(hash.strip().lower(), matches, chain),
+            )
+            if isinstance(result, str):
+                return HTMLResponse(content=result)
+            return result
         return {
             "witness": TITLE,
             "query": hash.strip().lower(),
