@@ -1,12 +1,16 @@
 # LitWit — The Literary Witness
 
-**A notary for the written word.** MIT-licensed, self-hostable provenance-as-a-service for writers and publishers.
+**A notary for the written word.**
 
-A writer hashes their manuscript locally (SHA-256 — the service never sees the work itself) and submits the fingerprint. The witness appends it to a public, hash-chained, append-only log and returns a receipt. Anyone can verify a hash and validate the chain, free, forever.
+The Literary Witness (LitWit) is a notary tool for independent writers, small publishers, and their AI agents who require a witnessed, tamper-evident record of a body of work. At a time when power is centralizing on a global scale — threatening individual rights and freedoms through censorship, coercion, and control — freelance authors need technical tools that protect the integrity of their work.
 
-Timestamping, not endorsement: it witnesses *that* bytes existed at a time, never *what* they are worth. Not copyright registration, not legal advice.
+LitWit provides provenance-as-a-service that timestamps without endorsing. The writer creates a digital fingerprint of the work's bytes using the SHA-256 cryptographic hash standard — the service never sees the work itself, only its fingerprint. That fingerprint is appended to a public, hash-chained, append-only log, and the writer receives a witnessed receipt. Anyone can then use the fingerprint, free and forever, to verify that the work existed at a point in time. No account required.
 
-Live instance: [pennypress.org/witness](https://www.pennypress.org/witness)
+Pseudonymous writers who wish to protect their anonymity can use LitWit to establish provenance in the digital age. As the agentic economy takes shape, open-source tools like LitWit help writers strengthen trust and editorial integrity.
+
+Scribe — 2026/10/11
+
+---
 
 ## Endpoints
 
