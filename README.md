@@ -30,6 +30,20 @@ files. Paste the endpoint into your AI client:
   and reading URLs for every published piece.
 - **`essay_payment_info`** (`slug` required, e.g. `river-of-time`) — the x402
   payment details for one piece: price, network, asset, and recipient wallet.
+- **`lexicon_lookup`** (`term` required, e.g. `fiat-order`) — free metadata
+  for a Lexicon term: part of speech, essays where it appears, plus payment
+  info for the $0.01 full definition.
+- **`lexicon_snapshot_info`** (no arguments) — payment details for the $0.25
+  full Lexicon dataset snapshot.
+- **`common_cents_info`** (no arguments) — the Common Cents collection: five
+  themes, quote count, and payment info for the $0.01 full set.
+- **`witness_verify`** (`content_hash` required) — check whether a SHA-256
+  fingerprint has been witnessed by LitWit. Free.
+- **`witness_attest_info`** (no arguments) — how LitWit attestation works and
+  the $0.05 payment details.
+
+The Literary Witness module behind `witness_*` is open source (MIT) under
+[`litwit/`](./litwit/) — hash-chained, DNS-anchored timestamping for writers.
 
 ## Reading (paid for machines)
 
