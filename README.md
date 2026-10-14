@@ -45,6 +45,10 @@ files. Paste the endpoint into your AI client:
 The Literary Witness module behind `witness_*` is open source (MIT) under
 [`litwit/`](./litwit/) — hash-chained, DNS-anchored timestamping for writers.
 
+LitWit is listed on [PayAPI Market](https://payapi.market/api/litwit-the-literary-witness)
+with a settlement-verified badge — PayAPI paid a real $0.05 attestation call
+and received a real receipt.
+
 ## Reading (paid for machines)
 
 `GET https://www.pennypress.org/essays/{slug}` returns the full text,
