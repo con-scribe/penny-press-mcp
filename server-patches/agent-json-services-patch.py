@@ -37,7 +37,7 @@ INTENTS = '''            ,
             },
             {
                 "name": "common_cents_full",
-                "description": "Get the full Common Cents collection: 20 author-curated quotations in five themed clusters, each with theme, source essay title, and link, as JSON.",
+                "description": "Get the full Common Cents collection: 22 author-curated quotations in five themed clusters, each with theme, source essay title, and link, as JSON.",
                 "endpoint": "/common-cents/full",
                 "method": "GET",
                 "price": {"amount": 0.01, "currency": "USDC"}
