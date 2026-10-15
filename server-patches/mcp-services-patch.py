@@ -103,7 +103,7 @@ TOOLS = '''    {
     {
         "name": "common_cents_info",
         "description": (
-            "Overview of Common Cents, the Penny Press collection of 20 "
+            "Overview of Common Cents, the Penny Press collection of 22 "
             "author-curated quotations in five themed clusters: the themes, "
             "quote count, and payment info for the $0.01 full machine-readable set."
         ),
