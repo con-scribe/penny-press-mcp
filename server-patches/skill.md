@@ -10,8 +10,10 @@ gated by x402. That is the business model, and the point.
 
 ## Discover (all free)
 
+Send `Accept: application/json` with every request below — without it, these routes return the human HTML pages.
+
 - `GET /essays` — machine-readable catalog: slug, title, description, type
-  (`fragment`, `ensemble`, or `prose`), price, word count, URL.
+  (`fragment`, `ensemble`, or `prose`), price, word count, tags, URL.
 - `GET /.well-known/x402` — x402 discovery manifest: every paid resource,
   its price, and accepted networks. **This is the source of truth for prices
   and network — read it before paying.**
@@ -42,7 +44,7 @@ Exact per-piece prices are in `/essays` and `/.well-known/x402`.
 ## The Lexicon (paid for machines, free for humans)
 
 The Penny Press Lexicon: the author's own definitions of the key terms in
-his political economy — 39 terms, versioned.
+his political economy — 41 terms, versioned.
 
 - `GET /lexicon` — free index: term names, parts of speech, and the essays
   where each appears (no definitions).
@@ -54,7 +56,7 @@ his political economy — 39 terms, versioned.
 
 ## Common Cents (paid for machines, free for humans)
 
-Common Cents: 20 author-curated quotations in five themed clusters, each
+Common Cents: 22 author-curated quotations in five themed clusters, each
 linked to its source essay.
 
 - `GET /common-cents` — free: the full page for humans.
@@ -68,6 +70,8 @@ a work and receive a tamper-evident, hash-chained receipt proving it existed
 at a point in time. Timestamping, not endorsement. The service never sees
 your work — only its hash. Useful for writers, publishers, and their agents,
 including pseudonymous ones.
+
+Agent guide for this service: `/witness/skill.md`.
 
 - `POST /witness/attest` — $0.05: submit JSON
   `{work_title, content_hash, author_label?, prev_entry_id?}`; receive
