@@ -20,13 +20,15 @@ text free in a browser at `/read/{slug}` — no accounts, no signup.
 Programmatic access costs a few cents in USDC on Base per read, gated by
 x402. That is the business model, and the point.
 
+Send `Accept: application/json` with every request below — without it, these routes return the human HTML pages.
+
 ## Costs (external, paid to the publisher — not to this skill)
 
 - fragments: $0.01 USDC — short pieces, under ~100 words
 - ensembles: $0.02 USDC — longer pieces, roughly 100–600 words
 - prose: $0.05 USDC — long-form, 600+ words
-- Lexicon snapshot (39 defined terms): $0.25 USDC
-- Common Cents full set (20 quotes): $0.01 USDC
+- Lexicon snapshot (41 defined terms): $0.25 USDC
+- Common Cents full set (22 quotes): $0.01 USDC
 - LitWit attestation: $0.05 USDC (verification free)
 
 Exact per-piece prices live at `GET https://www.pennypress.org/.well-known/x402`
@@ -95,7 +97,7 @@ his political economy — 39 terms, versioned.
 
 ## Common Cents
 
-Common Cents: 20 author-curated quotations in five themed clusters, each
+Common Cents: 22 author-curated quotations in five themed clusters, each
 linked to its source essay.
 
 - `GET https://www.pennypress.org/common-cents` — free: the full page for
@@ -109,6 +111,8 @@ LitWit is a notary for the written word: submit the SHA-256 fingerprint of
 a work and receive a tamper-evident, hash-chained receipt proving it existed
 at a point in time. Timestamping, not endorsement. The service never sees
 your work — only its hash.
+
+Agent guide for this service: `/witness/skill.md`.
 
 - `POST https://www.pennypress.org/witness/attest` — $0.05: submit JSON
   `{work_title, content_hash, author_label?, prev_entry_id?}`; receive
