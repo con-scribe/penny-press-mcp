@@ -9,10 +9,6 @@ writers, publishers, journalists, and their agents — including pseudonymous
 ones, via optional pen-name labels and version chains that link drafts of the
 same work as it comes into being.
 
-For pure proof-of-existence, OpenTimestamps is free and trustless. LitWit is
-for writers who need a public, checkable record of their work under a name
-they chose, obtainable by anyone or anything with five cents.
-
 ## Endpoints
 
 Send `Accept: application/json` — without it you may receive HTML.
