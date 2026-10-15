@@ -2,8 +2,8 @@
 
 Pseudonymous writing: free for humans, pennies for machines. Essays in three
 tiers — fragments ($0.01), ensembles ($0.02), prose ($0.05) — plus the
-author-defined Lexicon (39 terms; $0.25 full dataset snapshot) and Common
-Cents (20 curated quotes; $0.01 full set), all gated by x402 micropayments
+author-defined Lexicon (41 terms; $0.25 full dataset snapshot) and Common
+Cents (22 curated quotes; $0.01 full set), all gated by x402 micropayments
 in USDC on Base. LitWit, a literary notary, witnesses SHA-256 fingerprints
 of works ($0.05/attestation; verification free). No accounts, no API keys.
 
