@@ -87,7 +87,7 @@ Payment facts (all public by design — the `payTo` address appears in every
 ## The Lexicon
 
 The Penny Press Lexicon: the author's own definitions of the key terms in
-his political economy — 39 terms, versioned.
+his political economy — 41 terms, versioned.
 
 - `GET https://www.pennypress.org/lexicon` — free index: term names, parts
   of speech, and the essays where each appears (no definitions).
