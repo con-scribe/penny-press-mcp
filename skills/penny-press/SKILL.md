@@ -92,7 +92,7 @@ Spoken editions of essays. Humans listen free via the player on
 - `GET /essays/{slug}/audio` — $0.10: the spoken edition as MP3,
   same 402 flow as essay reads. This endpoint is NOT listed in
   `/.well-known/x402` by design — this section is its discovery
-  record. Audio currently exists for Confidence Game, River of Time, and Untamed Wilderness; other
+  record. Audio exists for select essays; other
   slugs return 404, no payment requested.
 
 ## The Lexicon
