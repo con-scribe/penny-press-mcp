@@ -106,6 +106,10 @@ his political economy — 41 terms, versioned.
   versioned dataset as JSON — term, part of speech, definition, verbatim
   usage example, source essays. Same 402 flow as essays.
 
+- `GET https://www.pennypress.org/lexicon/version`,
+  `GET https://www.pennypress.org/lexicon/changelog` — free: dataset
+  version and change history.
+
 ## Common Cents
 
 Common Cents: 22 author-curated quotations in five themed clusters, each
