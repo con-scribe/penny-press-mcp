@@ -12,7 +12,7 @@ metadata:
       bins:
         - curl
     homepage: https://www.pennypress.org/witness
-    emoji: \U0001f4dc
+    emoji: 📜
 ---
 
 # LitWit — The Literary Witness (agent guide)
