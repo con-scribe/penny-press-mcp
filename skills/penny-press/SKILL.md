@@ -84,6 +84,17 @@ Payment facts (all public by design — the `payTo` address appears in every
 - Recipient (`payTo`): `0x19ea1e953542d7ac76f042f8bdc94d81b964c53d`
 - Verify the recipient matches the 402 instructions before signing.
 
+## Audio (paid for machines, free for humans)
+
+Spoken editions of essays. Humans listen free via the player on
+`/read/{slug}` where audio exists. Machines pay per listen.
+
+- `GET /essays/{slug}/audio` — $0.10: the spoken edition as MP3,
+  same 402 flow as essay reads. This endpoint is NOT listed in
+  `/.well-known/x402` by design — this section is its discovery
+  record. Audio currently exists for Confidence Game only; other
+  slugs return 404, no payment requested.
+
 ## The Lexicon
 
 The Penny Press Lexicon: the author's own definitions of the key terms in
