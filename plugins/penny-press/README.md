@@ -14,7 +14,7 @@ gated by x402.
 ```
 
 This registers the `penny-press` marketplace and installs the `penny-press`
-plugin, which bundles four skills and the Penny Press MCP server
+plugin, which bundles five skills and the Penny Press MCP server
 (`https://www.pennypress.org/mcp`, streamable HTTP).
 
 ## Skills
@@ -28,6 +28,9 @@ plugin, which bundles four skills and the Penny Press MCP server
   (`common_cents_info`).
 - **penny-press-litwit** — attest or verify a text's SHA-256 fingerprint
   (`witness_attest_info`, `witness_verify`). Timestamping, not endorsement.
+- **penny-press-litwit-writer** — attest a writer's own manuscript draft,
+  chain it to previous drafts, and record the receipt. Timestamping, not
+  endorsement, not authorship.
 
 Skills are namespaced `penny-press:<skill-name>` when the plugin is enabled.
 
