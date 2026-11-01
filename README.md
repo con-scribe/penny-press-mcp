@@ -81,3 +81,18 @@ Documentation in this repository is licensed under
 [CC-BY-4.0](./LICENSE). Code (the `litwit/` module) is licensed under
 [MIT](./LICENSE-MIT). The essays themselves remain the work of their
 pseudonymous author.
+
+
+## Claude Code plugin
+
+Install the Penny Press skills pack in Claude Code:
+
+```
+/plugin marketplace add con-scribe/penny-press-mcp
+/plugin install penny-press@penny-press
+```
+
+Four skills (`penny-press-read`, `penny-press-lexicon`,
+`penny-press-common-cents`, `penny-press-litwit`) plus the Penny Press MCP
+server (`https://www.pennypress.org/mcp`). Free for humans. Pennies for
+machines. See `plugins/penny-press/README.md`.
