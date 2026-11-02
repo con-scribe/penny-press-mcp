@@ -219,7 +219,11 @@ def rpc_usdc_balance(addr):
     payload = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "eth_call",
                           "params": [{"to": USDC, "data": data}, "latest"]})
     req = urllib.request.Request(RPC, data=payload.encode(),
-                                 headers={"Content-Type": "application/json"})
+                                 headers={"Content-Type": "application/json",
+                                          # mainnet.base.org rejects the
+                                          # default Python UA; the buy
+                                          # scripts use a browser UA too.
+                                          "User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=30) as resp:
         result = json.loads(resp.read())["result"]
     return int(result, 16) / 1e6
@@ -362,7 +366,13 @@ def main():
     print("\n--- receipt ---")
     print(f"title: {data.get('title')}")
     print(f"slug: {chosen['slug']}")
-    print(f"price: ${data.get('price', price)}")
+    # The paid JSON carries price as a "$0.01" string; the quote fallback
+    # is a float, which needs the $ added. Never print "$$0.01".
+    paid_price = data.get("price", price)
+    if isinstance(paid_price, str):
+        print(f"price: {paid_price}")
+    else:
+        print(f"price: ${paid_price}")
     print(f"content_sha256: {sha}")
     print(f"manifest match: {'yes' if expected == sha else 'unknown (no entry)'}")
     return 0
